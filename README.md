@@ -22,13 +22,14 @@ Para realização do login, será criado um usuário e senha, que estão no corp
 
 ## **O que nós esperamos do teste**
 
-- Desmonstrar conhecimento de React.js
+- Demonstrar conhecimento de React.js
+- Demonstrar conhecimento de TypeScript
 - Boas práticas de programação
 - Um README com informações sobre o projeto e guia de uso
 - Histórico de commits do git
 - Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
 - Alcance dos objetivos propostos
-- Adaptação mobile
+- Responsividade
 
 ## **Seria ótimo ver no seu teste**
 
