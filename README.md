@@ -20,6 +20,11 @@ Para isso, você deverá consumir uma API interna que retornará as informaçõe
 
 Para realização do login, será criado um usuário e senha, que estão no corpo do email referente ao teste prático que enviamos.
 
+## **Layout do projeto**
+
+Não há um modelo exato de como deve ficar o aplicativo final, mas criamos um [layout](https://www.figma.com/file/3avD92FrmZ8mmf8oqjdY7D/teste-frontend?node-id=4449%3A28922) de exemplo para nortear o desenvolvimento.
+
+
 ## **O que nós esperamos do teste**
 
 - Demonstrar conhecimento de React.js
