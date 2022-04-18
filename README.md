@@ -1,20 +1,19 @@
 # Teste prático Front-End
 
-Este teste é desenvolvido pela [Qesh Payments](https://www.qesh.ai/) e tem como objetivo avaliar tecnicamente o candidato para a vaga de Front-End.
+Este teste é desenvolvido pela [Qesh](https://www.linkedin.com/company/qesh-payments/) e tem como objetivo avaliar tecnicamente o candidato para a vaga de Front-End.
 
-Durante o processo de seleção, todos os candidatos fazem o mesmo teste, ou seja, um candidato a uma vaga front-end júnior fará o mesmo teste de um candidato a uma vaga front-end sênior.
 
 ## **Instruções**
 
 Você deverá criar um `fork` deste repositório. Nesse fork, você encontrará a pasta `project`. Nessa pasta terá um projeto base que deve ser usado para o teste.
 
-Não há um tempo limite para resolução deste teste, o que vale para nós é o resultado final e a evolução da criação do projeto.
+Você terá 48h para finalizar o teste e caso esse prazo não seja cumprido, a candidatura não será mais acompanhada pela Qesh.
 
 ## **Sobre o teste**
 
 Você desenvolverá um aplicativo de criação perfil de usuário, que exibirá suas informações básicas e que poderão ser editáveis posteriormente.
 
-Para isso, você deverá consumir uma API interna que retornará as informações do usuário, um token de autenticação e um refresh token. A cada 2 horas, o token de autenticação expira e o refresh token é renovado.
+Para isso, você deverá consumir uma API interna que retornará as informações do usuário, um token de autenticação e um refresh token.
 
 > **Nota:** O token de autenticação é necessários para acessar as informações do usuário.
 
