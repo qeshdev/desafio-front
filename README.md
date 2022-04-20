@@ -7,17 +7,13 @@ Este teste é desenvolvido pela [Qesh](https://www.linkedin.com/company/qesh-pay
 
 Você deverá criar um `fork` deste repositório. Nesse fork, você encontrará a pasta `project`. Nessa pasta terá um projeto base que deve ser usado para o teste.
 
-Você terá 48h para finalizar o teste e caso esse prazo não seja cumprido, a candidatura não será mais acompanhada pela Qesh.
+Você terá 48h para realizar o teste, consideraremos até onde você conseguir chegar com o código.
 
 ## **Sobre o teste**
 
 Você desenvolverá um aplicativo de criação perfil de usuário, que exibirá suas informações básicas e que poderão ser editáveis posteriormente.
 
-Para isso, você deverá consumir uma API interna que retornará as informações do usuário, um token de autenticação e um refresh token.
-
-> **Nota:** O token de autenticação é necessários para acessar as informações do usuário.
-
-Para realização do login, será criado um usuário e senha, que estão no corpo do email referente ao teste prático que enviamos.
+A informações deverão ser mokadas, ou seja, não deverão ser obtidas de um banco de dados.
 
 ## **Layout do projeto**
 
