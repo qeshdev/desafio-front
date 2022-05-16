@@ -1,13 +1,11 @@
-import logo from './assets/logo.png';
-import './App.css';
+import React from 'react';
+import Router from './routes/Router';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header>
-    </div>
+    <>
+      <Router/>
+    </>
   );
 }
 
