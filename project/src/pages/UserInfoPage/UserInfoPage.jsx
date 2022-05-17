@@ -15,34 +15,32 @@ const UserInfoPage = () => {
   const { form, onChangeForm, cleanFields } = useForm({ email: userLoginDetails.email, name: userLoginDetails.userName, phone: userLoginDetails.phone, nationality: userLoginDetails.nationality});
 
   useEffect(()=>{
-    console.log(form);
-  },[form])
-  
-  const onSubmitForm = (event) => {
-    setUserLoginDetails({userName: form.name, phone: form.phone, email: form.email, nationality: form.nationality})
-    console.log(userLoginDetails)
-    event.preventDefault();
-    console.log('Editado com sucesso!');
-    console.log(form)
-  }
-
-  let editable = false;
-
-  const handleToggleSwitch = () => {
-    if(editable){
-      editable = false;
       document.getElementById('name').disabled = true;
       document.getElementById('phone').disabled = true;
       document.getElementById('email').disabled = true;
       document.getElementById('nationality').disabled = true;
-      console.log('Modo Visualização')
-    }else{
-      editable = true;
-      console.log('Modo Edição')
+  },[])
+  
+
+  let editable = userLoginDetails.editable;
+
+  
+    console.log(userLoginDetails);
+
+  const handleToggleSwitch = () => {
+    if(!editable){
+      setUserLoginDetails({userName: form.name, phone: form.phone, email: form.email, nationality: form.nationality, editable: true})
       document.getElementById('name').disabled = false;
       document.getElementById('phone').disabled = false;
       document.getElementById('email').disabled = false;
       document.getElementById('nationality').disabled = false;
+      console.log('Modo Edição')
+    }else{
+      setUserLoginDetails({userName: form.name, phone: form.phone, email: form.email, nationality: form.nationality, editable: false})
+      document.getElementById('name').disabled = true;
+      document.getElementById('phone').disabled = true;
+      document.getElementById('email').disabled = true;
+      document.getElementById('nationality').disabled = true;
     }
   }
 
@@ -54,7 +52,7 @@ const UserInfoPage = () => {
         <ContainerOutterSwitch>          
           <ContainerInnerSwitch>
             <label className="switch">
-              <input type="checkbox" onChange={handleToggleSwitch} value={editable} />
+              <input type="checkbox" onClick={handleToggleSwitch} value={editable} />
               <span className="slider round"></span>
             </label>
             <label>Modo editor</label>
@@ -69,7 +67,6 @@ const UserInfoPage = () => {
               name="name" 
               value={form.name} 
               onChange={onChangeForm} 
-              disabled
             />
             <InputLabel>Telefone</InputLabel>
             <InputForm
@@ -80,7 +77,6 @@ const UserInfoPage = () => {
               name="phone" 
               value={form.phone} 
               onChange={onChangeForm} 
-              disabled
             />
             <InputLabel>E-mail</InputLabel>
             <InputForm
@@ -89,7 +85,6 @@ const UserInfoPage = () => {
               name="email" 
               value={form.email} 
               onChange={onChangeForm} 
-              disabled
             />
             <InputLabel>Nacionalidade</InputLabel>
             <InputForm
@@ -98,7 +93,6 @@ const UserInfoPage = () => {
               name="nationality" 
               value={form.nationality} 
               onChange={onChangeForm}
-              disabled
             />
           </ContainerInputs>
         </ContainerForm>

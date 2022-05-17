@@ -42,7 +42,7 @@ const EmailVerifyPage = () => {
         </ContainerLogo>
         <ContainerForm>
             <ContainerLabel>
-              <InputLabel for="email">E-mail</InputLabel>
+              <InputLabel>E-mail</InputLabel>
             </ContainerLabel>
               <InputForm
                 id='loginEmailVerify'

@@ -1,5 +1,9 @@
-export const goToVerifyEmail = (navigate) => {
+export const goToInitial = (navigate) => {
     navigate("/");
+}
+
+export const goToVerifyEmail = (navigate) => {
+    navigate("/email");
 }
 
 export const goBack = (navigate) => {

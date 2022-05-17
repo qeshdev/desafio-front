@@ -6,6 +6,9 @@ import { Container, Card, UserImage, ContainerPhoto, ContainerForm, InputLabel, 
 import useForm from '../../hooks/useForm';
 import { goToUserInfopage } from '../../routes/coordinator';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
+
 const LoginPage = () => {
   const navigate = useNavigate();
  
@@ -18,10 +21,10 @@ const LoginPage = () => {
     event.preventDefault();
     if(form.email === userLoginDetails.email && form.password === userLoginDetails.password){      
       cleanFields();
+      toast.success('Login realizado com sucesso');
       goToUserInfopage(navigate);
-      alert('Usuário logado com sucesso!');
     }else{
-      alert('Usuário ou senha incorretos!');
+      toast.error('Usuário ou senha incorretos!');
     }
   }
 
@@ -31,6 +34,7 @@ const LoginPage = () => {
 
   useEffect(()=>{
     focusPasswordOnLoad();
+    console.log(userLoginDetails);
   },[])
 
   return (
@@ -60,6 +64,7 @@ const LoginPage = () => {
             <ButtonForm onClick={onSubmitForm}>Logar</ButtonForm>
           </ContainerButton>
         </ContainerForm>
+        <ToastContainer />
       </Card>
     </Container>
   )
