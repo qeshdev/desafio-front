@@ -52,7 +52,7 @@ export const ContainerInputs = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 300px;
+  width: 400px;
 `;
 
 export const InputForm = styled.input`
@@ -73,40 +73,85 @@ export const InputLabel = styled.label`
   line-height: 24px;
 `;
 
-export const ContainerButton = styled.div`
-  width: 100%;
+/* Switch */
+
+export const ContainerOutterSwitch = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  bottom: -90%;
+  width: 100%;
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px;
+    border: 0;
+  }
+
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #E0E0E0;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #521AA3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #521AA3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(19px);
+    -ms-transform: translateX(19px);
+    transform: translateX(19px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
 `;
 
-
-export const ButtonForm = styled.button`
-  width: 300px;
-  background-color: ${primaryColor};
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  padding: 10px 0;    
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: 0.0025em;
-  color: white;
-  cursor: pointer;
-  box-shadow: 1px 2px 5px black;
-  outline-color: ${primaryColor};
-  :hover{
-    background-color: ${primaryColorHover};
-  }
-  :active{
-    background-color: ${primaryColor};
-  box-shadow: -1px -2px 5px black;
+export const ContainerInnerSwitch = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 400px;
+  label:nth-child(2){
+    margin-top: 5px;
+    font-size: 12px;
   }
 `;
-
-
-
-
-

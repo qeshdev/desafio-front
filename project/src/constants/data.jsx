@@ -1,1 +1,0 @@
-export const users = [{id: 1, email: 'matheus@gmail.com', password: '123456'}];
