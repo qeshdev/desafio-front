@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import logo from '../../assets/logo-white-transparent.png';
 import { goToVerifyEmail } from '../../routes/coordinator';
-import { Card, Container, ContainerLogo, LogoImage } from './Styled';
+import { Card, Container, ContainerLogo, LogoImage } from './Styled';  
+import useUnprotectedPage from '../../hooks/useUnprotectedPage'
 
 const InitialPage = () => {
+  useUnprotectedPage();
   const navigate = useNavigate();
 
   useEffect(()=>{

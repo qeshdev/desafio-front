@@ -2,8 +2,50 @@ import React, { useEffect, useContext } from 'react';
 import { useNavigate } from "react-router-dom";
 import userPhoto from '../../assets/user-photo.png';
 import GlobalStateContext from '../../context/GlobalStateContext';
-import { Container, Card, UserImage, ContainerPhoto, ContainerForm, InputLabel, ContainerInputs, InputForm, ContainerOutterSwitch, ContainerInnerSwitch } from './Styled';
+import { Container, Card, UserImage, ContainerForm, InputLabel, ContainerInputs, InputForm, ContainerOutterSwitch, ContainerInnerSwitch, LogoutIcon } from './Styled';
 import useForm from '../../hooks/useForm';
+import ColorPalette from '../../components/ColorPalette/ColorPalette';
+import styled from 'styled-components';
+import { primaryColor, primaryColorHover } from '../../constants/color';
+
+
+const ContainerPhoto = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+  border-radius: 24px 24px 0 0;
+  background-color: ${primaryColor};
+  ${(props) => {    
+    if(props.color === '#42C1C7'){
+      return 'background-color: #42C1C7'
+    }else if(props.color === '#FEFE33'){
+      return 'background-color: #FEFE33'
+    }else if(props.color === '#FABC02'){
+      return 'background-color: #FABC02'
+    }else if(props.color === '#FB9902'){
+      return 'background-color: #FB9902'
+    }else if(props.color === '#FD5308'){
+      return 'background-color: #FD5308'
+    }else if(props.color === '#FE2712'){
+      return 'background-color: #FE2712'
+    }else if(props.color === '#A7194B'){
+      return 'background-color: #A7194B'
+    }else if(props.color === '#8601AF'){
+      return 'background-color: #8601AF'
+    }else if(props.color === '#3D01A'){
+      return 'background-color: #3D01A4'
+    }else if(props.color === '#0247FE'){
+      return 'background-color: #0247FE'
+    }else if(props.color === '#0392C'){
+      return 'background-color: #0392CE'
+    }else if(props.color === '#66B03'){
+      return 'background-color: #66B032'
+    }else if(props.color === '#D0EA2B'){
+      return 'background-color: #D0EA2B'
+    }     
+  }}
+`;
 
 const UserInfoPage = () => {
   const navigate = useNavigate();
@@ -19,14 +61,19 @@ const UserInfoPage = () => {
       document.getElementById('phone').disabled = true;
       document.getElementById('email').disabled = true;
       document.getElementById('nationality').disabled = true;
+      
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      console.log("Não está logado!!!");
+      navigate("/login");
+    }
   },[])
   
 
   let editable = userLoginDetails.editable;
 
   
-    console.log(userLoginDetails);
-
   const handleToggleSwitch = () => {
     if(!editable){
       setUserLoginDetails({userName: form.name, phone: form.phone, email: form.email, nationality: form.nationality, editable: true})
@@ -44,10 +91,19 @@ const UserInfoPage = () => {
     }
   }
 
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  }
+
   return (
-    <Container>
+    <Container>      
       <Card>
-        <ContainerPhoto />
+        <ContainerPhoto id="containerUserDetails" color={userLoginDetails.color}>
+          <LogoutIcon onClick={logout}>
+            <i className="fas fa-sign-out"></i>
+          </LogoutIcon>
+        </ContainerPhoto>
         <UserImage src={userPhoto} alt="user-photo" />
         <ContainerOutterSwitch>          
           <ContainerInnerSwitch>
@@ -72,8 +128,6 @@ const UserInfoPage = () => {
             <InputForm
               id='phone'
               type="text"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              title='O correto é +55 31 9 9999 9999'
               name="phone" 
               value={form.phone} 
               onChange={onChangeForm} 
@@ -96,6 +150,7 @@ const UserInfoPage = () => {
             />
           </ContainerInputs>
         </ContainerForm>
+        {editable === true ? <ColorPalette/> : null}
       </Card>
     </Container>
   )

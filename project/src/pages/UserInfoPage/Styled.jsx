@@ -6,6 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #E5E5E5;
 `;
 
 export const Card = styled.div`
@@ -17,14 +18,6 @@ export const Card = styled.div`
   box-shadow: 0 0 10px ${primaryColor};
 `;
 
-export const ContainerPhoto = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 110px;
-  border-radius: 24px 24px 0 0;
-  background-color: ${primaryColor};
-`;
 
 export const UserImage = styled.img`
   width: 100px;
@@ -153,5 +146,24 @@ export const ContainerInnerSwitch = styled.div`
   label:nth-child(2){
     margin-top: 5px;
     font-size: 12px;
+  }
+`;
+
+export const LogoutIcon = styled.button`
+  position: absolute;
+  right: 20px;
+  color: white;
+  font-size: 20px;
+  background-color: #00000047;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  :hover{
+    background-color: #00000081;
+  }
+  :active{
+    background-color: #00000047;
+  box-shadow: -1px -2px 5px black;
   }
 `;

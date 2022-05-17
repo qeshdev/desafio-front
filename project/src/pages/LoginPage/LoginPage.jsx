@@ -8,8 +8,10 @@ import { goToUserInfopage } from '../../routes/coordinator';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css'; 
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
 
 const LoginPage = () => {
+  useUnprotectedPage();
   const navigate = useNavigate();
  
   const { states } = useContext(GlobalStateContext);
@@ -21,6 +23,7 @@ const LoginPage = () => {
     event.preventDefault();
     if(form.email === userLoginDetails.email && form.password === userLoginDetails.password){      
       cleanFields();
+      localStorage.setItem('token', Math.random().toString(36).substr(2))
       toast.success('Login realizado com sucesso');
       goToUserInfopage(navigate);
     }else{

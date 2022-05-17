@@ -6,7 +6,14 @@ import { Container, Card, LogoImage, ContainerLogo, ContainerForm, InputLabel, I
 import useForm from '../../hooks/useForm';
 import { goToLogin } from '../../routes/coordinator';
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css'; 
+import useUnprotectedPage from '../../hooks/useUnprotectedPage';
+
+
+
 const EmailVerifyPage = () => {
+  useUnprotectedPage();
   const navigate = useNavigate();
  
   const { states } = useContext(GlobalStateContext);
@@ -29,7 +36,7 @@ const EmailVerifyPage = () => {
       cleanFields();
       goToLogin(navigate);
     }else{
-      alert('Este e-mail informado ainda não está cadastrado.');
+      toast.error('Email informado está incorreto ou ainda não foi cadastrado!');
     }
   }
 
@@ -54,6 +61,7 @@ const EmailVerifyPage = () => {
           <ContainerButton>
             <ButtonForm onClick={onSubmitForm}>Prosseguir</ButtonForm>
           </ContainerButton>
+        <ToastContainer />
         </ContainerForm>
       </Card>
     </Container>
